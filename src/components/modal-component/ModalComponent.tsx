@@ -8,13 +8,13 @@ function ModalComponent(props: ModalComponentProps) {
     return props.shouldShowModal ? (
         <div className='modal'>
             <div className='modalContent'>
-                <button className='closeButton' onClick={props.onModalClicked}>
+                <button className='closeButton' onClick={props.onModalTriggered}>
                     <CloseIcon />
                 </button>
                 <p className='modalHeader'>Cancel meeting</p>
                 <p>Are you sure you want to cancel this meeting?</p>
                 <div className='buttonContainer'>
-                    <button className='modalButton' onClick={props.onModalClicked}>CANCEL MEETING</button>
+                    <button className='modalButton' onClick={props.onCancelMeetingClicked}>CANCEL MEETING</button>
                 </div>
             </div>
         </div>

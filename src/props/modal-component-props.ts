@@ -1,4 +1,5 @@
 export interface ModalComponentProps {
     shouldShowModal: boolean;
-    onModalClicked: () => void;
+    onModalTriggered: () => void;
+    onCancelMeetingClicked: () => void;
 }

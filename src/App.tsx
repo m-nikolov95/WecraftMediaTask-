@@ -6,17 +6,30 @@ import './App.css';
 
 function App() {
   let [shouldShowModal, setShouldShowModal] = useState(false);
+  let [shouldCancelMeeting, setShouldCancelMeeting] = useState(false);
 
-  const onModalClicked = () => {
+  const onModalTriggered = () => {
     setShouldShowModal((shouldShowModal) => !shouldShowModal);
+  }
+
+  const onCancelMeetingClicked = () => {
+    onModalTriggered();
+    
+    setShouldCancelMeeting(true);
   }
   
   return (
     <div className='container'>
         <p className='headerParagraph'>Product catalogue</p>
         <p className='paragraph'>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. </p>
-        <button className='button' onClick={onModalClicked}>CANCEL</button>
-        <ModalComponent shouldShowModal={shouldShowModal} onModalClicked={onModalClicked} />
+        {
+        shouldCancelMeeting ? 
+          <p className='cancellationParagraph'>Meeting canceled.</p>
+          : <button className='button' onClick={onModalTriggered}>CANCEL</button>
+        }
+        <ModalComponent shouldShowModal={shouldShowModal} 
+          onModalTriggered={onModalTriggered} 
+          onCancelMeetingClicked={onCancelMeetingClicked} />
     </div>
   );
 }
